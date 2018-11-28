@@ -1,5 +1,6 @@
 <?php
 session_start();
+global $pdo;
 $host = "localhost";
 $user = "root";
 $pass = "";
@@ -9,7 +10,7 @@ $options = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
                 PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 try{
-    $conn = new PDO($dsn,$user,$pass,$options);
+    $pdo = new PDO($dsn,$user,$pass,$options);
 }
 catch(PDOException $e){
     echo utf8_decode("Erro de conexão ao banco"). $e->getMessage();
