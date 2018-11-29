@@ -36,5 +36,12 @@ class Usuarios{
             return false;
         }
     }
+
+    public function saberNome($id){
+        global $pdo;
+        $sql = $pdo->prepare("SELECT nome FROM usuarios WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
 }
 ?>
